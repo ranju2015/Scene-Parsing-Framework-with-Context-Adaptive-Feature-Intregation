@@ -1,0 +1,2 @@
+# Scene-Parsing-Framework-with-Context-Adaptive-Feature-Intregation
+The proposed model can be divided into 3 logical layers or modules. The first layer (i.e., the Visual Layer) is introduced to extract optimized features using a Genetic Algorithm and train the One-vs-All binary classifier. The following layer deals with contextual information that learns the global and local contexts of an image. The final layer combines all the information optimally using a noble MLP-based regression method to produce the final class label. 
