@@ -4,12 +4,12 @@ function SuperpixelData()
     addpath(genpath(HOME));
 
     dataBases = {'STAN','MSRC','CORE','SIFT','CAMV','CS'}; %CS-CityScapes
-    selDB = dataBases{6};
+    selDB = dataBases{1};
 
     imgFold = [HOME selDB 'Data/'];
     gtFold = [HOME selDB 'Label/'];
     matFold = [HOME selDB 'Mat/'];
-    tarFold = [HOME selDB 'SPAG/'];    %SuperPixel Adjacency Graph
+    %tarFold = [HOME selDB 'SPAG/'];    %SuperPixel Adjacency Graph
 
     switch selDB
         case 'STAN'
@@ -33,7 +33,7 @@ function SuperpixelData()
     selInt = Integration_Layer{4};
 
     %% paramters setting %% Feat_and_Label_SVM_1
-    Kval = 256;         % control number of superpixels.
+    Kval = 512;         % control number of superpixels.
     blockRow = 6 ;      % image divided into 6*6 blocks (location prior).
     numCV = 5;
     iCV = 1;
@@ -80,8 +80,8 @@ function SuperpixelData()
     sumLocPriorMap = getLocPriorMap(matFold,allImgList,testImgIdx,numClass,blockRow,iCV);
 
     fprintf('logistic regression on training images\n');
-    %coef = logistRegTrainData(matFold,allImgList,testImgIdx,numClass,selClf,selInt,SelFeaIdx,sumLocPriorMap,adjSuperPixelOcc,blockRow,sta,iCV);
-    load('coefCV1Block6.mat');
+    coef = logistRegTrainData(matFold,allImgList,testImgIdx,numClass,selClf,selInt,SelFeaIdx,sumLocPriorMap,adjSuperPixelOcc,blockRow,sta,iCV);
+    %load('coefCV1Block6.mat');
 
     fprintf('Evaluation on testing images\n');
     evaTestImg(matFold,allImgList,testImgIdx,numClass,selClf,selInt,selDB,SelFeaIdx,sumLocPriorMap,adjSuperPixelOcc,coef,blockRow,sta,iCV);
