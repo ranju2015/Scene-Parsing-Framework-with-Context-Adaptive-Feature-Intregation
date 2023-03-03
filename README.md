@@ -18,7 +18,7 @@ Here we set selDB value as "STAN", as we are working one Stanford dataset.
 dataBases = {'STAN','MSRC','CORE','SIFT','CAMV'};
 selDB = dataBases{1};
 
-## selection of classifier for visual feature extraction layer
+## Selection of classifier for visual feature extraction layer
 The algorithm select Artificail Neural Networks if the selClf vaule is set classifiers{1}, 
 similarly if we want to select SVM, the classifiers value should 2.   
 classifiers = {'ANN','SVM','ADB','RDF','CNN'};
@@ -29,7 +29,7 @@ The selFeatLen variable need to set as follows. The feautres size will be 50 aft
 selFeatLen = 50
 
 
-## selection of classifier in the third layer (Integrtion layer)
+## Selection of classifier in the third layer (Integrtion layer)
 Integration layer selection has five options. The default selection is MLP, the values of MLP is set to selInt Variable.
 
 Integration_Layer = {'Linear','Non_linear','SVM','MLP','R-Ensemble'};   % Options for Integration Layer (Regression)
